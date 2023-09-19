@@ -8,6 +8,9 @@ dependencies:
   '@rainbow-me/rainbowkit':
     specifier: ^1.0.11
     version: 1.0.11(@types/react@18.2.15)(react-dom@18.2.0)(react@18.2.0)(viem@1.10.14)(wagmi@1.4.2)
+  '@tanstack/react-query':
+    specifier: ^4.35.3
+    version: 4.35.3(react-dom@18.2.0)(react@18.2.0)
   class-variance-authority:
     specifier: ^0.7.0
     version: 0.7.0
