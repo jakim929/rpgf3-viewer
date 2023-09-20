@@ -5,6 +5,7 @@ import { configureChains, createConfig } from 'wagmi'
 import { optimism } from 'wagmi/chains'
 import { alchemyProvider } from 'wagmi/providers/alchemy'
 import { publicProvider } from 'wagmi/providers/public'
+import { QueryClient } from '@tanstack/react-query'
 
 const { chains, publicClient } = configureChains(
   [optimism],
@@ -20,10 +21,12 @@ const { connectors } = getDefaultWallets({
   chains,
 })
 
-export const wagmiConfig = createConfig({
-  autoConnect: true,
-  connectors,
-  publicClient,
-})
+export const createWagmiConfig = (queryClient: QueryClient) =>
+  createConfig({
+    autoConnect: true,
+    connectors,
+    publicClient,
+    queryClient,
+  })
 
 export { chains }
