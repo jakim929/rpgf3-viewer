@@ -12,7 +12,6 @@ type Props = {
 }
 
 const ApplicationCard = ({ project }: Props) => {
-  console.log(project)
   const displayName = project?.attestation?.displayName
   const projectId = project?.id
   const metadataPTR = project?.attestation?.applicationMetadataPtr
@@ -33,8 +32,6 @@ const ApplicationCard = ({ project }: Props) => {
       enabled: !!metadataPTR, // Only run the query if metadataPTR is defined
     },
   )
-
-  console.log(data)
 
   return (
     <div className="rounded-xl overflow-hidden">
