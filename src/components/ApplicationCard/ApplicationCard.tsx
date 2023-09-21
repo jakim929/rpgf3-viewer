@@ -5,6 +5,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion'
+import { Link } from 'react-router-dom'
 
 type Props = {
   project: any
@@ -70,13 +71,13 @@ const ApplicantDetails = ({ details }: any) => {
       </p>
       <p>
         <strong>Website URL:</strong>{' '}
-        <a
-          href={details.websiteUrl}
+        <Link
+          to={details.websiteUrl}
           target="_blank"
           className="text-blue-500 underline"
         >
           {details.websiteUrl}
-        </a>
+        </Link>
       </p>
       <p>
         <strong>Bio:</strong>{' '}
@@ -94,13 +95,13 @@ const ApplicantDetails = ({ details }: any) => {
           {details.contributionLinks.map((link, index) => (
             <li key={index}>
               <span className="font-semibold">{link.type}:</span>{' '}
-              <a
-                href={link.url}
+              <Link
+                to={link.url}
                 target="_blank"
                 className="text-blue-500 underline"
               >
                 {link.description}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
@@ -126,13 +127,13 @@ const ApplicantDetails = ({ details }: any) => {
             <li key={index}>
               <span className="font-semibold">{metric.description}:</span>{' '}
               {metric.number} (
-              <a
-                href={metric.url}
+              <Link
+                to={metric.url}
                 target="_blank"
                 className="text-blue-500 underline"
               >
                 source
-              </a>
+              </Link>
               )
             </li>
           ))}
