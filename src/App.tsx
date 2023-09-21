@@ -26,7 +26,6 @@ const router = createBrowserRouter([
 function App() {
   const { theme, setTheme } = useTheme()
 
-  console.log(theme)
   setTheme('dark')
   return (
     <QueryClientProvider client={queryClient}>

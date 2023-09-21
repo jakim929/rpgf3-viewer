@@ -1,4 +1,3 @@
-import { useQuery } from '@tanstack/react-query'
 import {
   Accordion,
   AccordionContent,
@@ -6,6 +5,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion'
 import { Link } from 'react-router-dom'
+import { useApplicationMetadata } from '@/lib/useApplicationMetadata'
 
 type Props = {
   project: any
@@ -16,23 +16,7 @@ const ApplicationCard = ({ project }: Props) => {
   const projectId = project?.id
   const metadataPTR = project?.attestation?.applicationMetadataPtr
 
-  const { data, error, isLoading } = useQuery(
-    [`metadata-${projectId}`],
-    async () => {
-      if (!metadataPTR) {
-        throw new Error('Metadata PTR is not defined')
-      }
-      const response = await fetch(metadataPTR)
-      if (!response.ok) {
-        throw new Error('Network response was not ok')
-      }
-      return response.json()
-    },
-    {
-      enabled: !!metadataPTR, // Only run the query if metadataPTR is defined
-    },
-  )
-
+  const { data, error, isLoading } = useApplicationMetadata(metadataPTR)
   return (
     <div className="rounded-xl overflow-hidden">
       <Accordion type="single" collapsible>
