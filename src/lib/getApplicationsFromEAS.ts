@@ -4,7 +4,7 @@ import { gql, request } from 'graphql-request'
 import { hexToBigInt, isHex } from 'viem'
 import { z } from 'zod'
 
-const TAKE = 11
+const TAKE = 21
 
 // This parses the decoded json blob from the attestation
 // alternative is to get the raw payload and schema and decode it on the frontend using the eas-sdk

@@ -16,7 +16,8 @@ const ApplicationCard = ({ project }: Props) => {
   const projectId = project?.id
   const metadataPTR = project?.attestation?.applicationMetadataPtr
 
-  const { data, error, isLoading } = useApplicationMetadata(metadataPTR)
+  const { data } = useApplicationMetadata(metadataPTR)
+
   return (
     <div className="rounded-xl overflow-hidden">
       <Accordion type="single" collapsible>
@@ -42,6 +43,9 @@ const ApplicationCard = ({ project }: Props) => {
 }
 
 const ApplicantDetails = ({ details }: any) => {
+  if (details === undefined) {
+    return <div>Loading...</div>
+  }
   return (
     <div className="bg-gray-800 p-4 rounded-md shadow-md text-left flex flex-col gap-3 ">
       <p>
