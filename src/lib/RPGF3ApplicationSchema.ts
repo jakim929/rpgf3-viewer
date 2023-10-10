@@ -70,7 +70,7 @@ const FundingSourceSchema = z.union([
       FundingSourceEnum.Enum.RETROPGF_2,
     ]),
     currency: z.enum([FundingSourceCurrencyEnum.Enum.OP]),
-    amount: z.number().min(1),
+    amount: z.number().min(0),
     description: z.string().max(80).optional(),
   }),
   z.object({
@@ -80,7 +80,7 @@ const FundingSourceSchema = z.union([
       FundingSourceEnum.Enum.OTHER,
     ]),
     currency: z.enum([FundingSourceCurrencyEnum.Enum.USD]),
-    amount: z.number().min(1),
+    amount: z.number().min(0),
     description: z.string().max(80).optional(),
   }),
 ])
